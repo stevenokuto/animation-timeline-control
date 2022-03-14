@@ -185,7 +185,7 @@ export class Timeline extends TimelineEventsEmitter {
       'user-drag: none;' +
       'padding: inherit';
 
-    this._scrollContainer.style.cssText = 'overflow: scroll;' + 'position: absolute;' + 'width:  100%;' + 'height:  100%;';
+    this._scrollContainer.style.cssText = 'overflow-y: hidden;' + 'overflow-x: scroll;' + 'position: absolute;' + 'width:  100%;' + 'height:  100%;';
 
     this._scrollContent.style.width = this._scrollContent.style.height = '100%';
 
@@ -320,7 +320,7 @@ export class Timeline extends TimelineEventsEmitter {
       const mousePos = Math.max(0, this._getMousePos(this._canvas, event).x || 0);
       this._zoom(TimelineUtils.sign(event.deltaY), this._options.zoomSpeed, mousePos);
     } else {
-      this._scrollContainer.scrollTop += event.deltaY;
+      // this._scrollContainer.scrollTop += event.deltaY;
       event.preventDefault();
     }
   };
