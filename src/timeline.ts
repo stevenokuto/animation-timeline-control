@@ -1129,12 +1129,12 @@ export class Timeline extends TimelineEventsEmitter {
       this._rescaleInternal(newLeft + this._width());
     }
 
-    if (offsetX > 0 && newLeft + this._width() >= this._scrollContainer.scrollWidth - 5) {
-      this._scrollContainer.scrollLeft = this._scrollContainer.scrollWidth;
-    } else {
-      this._scrollContainer.scrollLeft = newLeft;
-    }
-    this._scrollContainer.scrollTop = Math.round(scrollStartPos.y + start.y - pos.y);
+    // if (offsetX > 0 && newLeft + this._width() >= this._scrollContainer.scrollWidth - 5) {
+    //   this._scrollContainer.scrollLeft = this._scrollContainer.scrollWidth;
+    // } else {
+    //   this._scrollContainer.scrollLeft = newLeft;
+    // }
+    // this._scrollContainer.scrollTop = Math.round(scrollStartPos.y + start.y - pos.y);
   }
 
   _scrollBySelectionOutOfBounds(pos: DOMPoint): boolean {
@@ -1169,17 +1169,17 @@ export class Timeline extends TimelineEventsEmitter {
         newWidth = this.getScrollLeft() + this._width() + speedX;
       }
 
-      if (isTop) {
-        // Get normalized speed.
-        speedY = (-TimelineUtils.getDistance(x, bounds) * scrollSpeedMultiplier) / 4;
-      } else if (isBottom) {
-        // Get normalized speed:
-        speedY = (TimelineUtils.getDistance(x, this._height() - bounds) * scrollSpeedMultiplier) / 4;
-        newHeight = this._scrollContainer.scrollTop + this._height();
-      }
-    } else {
-      this._stopAutoPan();
-    }
+    //   if (isTop) {
+    //     // Get normalized speed.
+    //     speedY = (-TimelineUtils.getDistance(x, bounds) * scrollSpeedMultiplier) / 4;
+    //   } else if (isBottom) {
+    //     // Get normalized speed:
+    //     speedY = (TimelineUtils.getDistance(x, this._height() - bounds) * scrollSpeedMultiplier) / 4;
+    //     newHeight = this._scrollContainer.scrollTop + this._height();
+    //   }
+    // } else {
+    //   this._stopAutoPan();
+    // }
 
     if (newWidth || newHeight) {
       this._rescaleInternal(newWidth, newHeight, 'scrollBySelection');
@@ -1190,10 +1190,10 @@ export class Timeline extends TimelineEventsEmitter {
       isChanged = true;
     }
 
-    if (Math.abs(speedY) > 0) {
-      this._scrollContainer.scrollTop += speedY;
-      isChanged = true;
-    }
+    // if (Math.abs(speedY) > 0) {
+    //   this._scrollContainer.scrollTop += speedY;
+    //   isChanged = true;
+    // }
 
     return isChanged;
   }
@@ -1957,6 +1957,9 @@ export class Timeline extends TimelineEventsEmitter {
     if (val < this._options.min) {
       val = this._options.min;
     }
+
+    if (val == 0)
+      return false;
 
     if (this._val != val) {
       const prevVal = this._val;
