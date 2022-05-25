@@ -1129,11 +1129,11 @@ export class Timeline extends TimelineEventsEmitter {
       this._rescaleInternal(newLeft + this._width());
     }
 
-    // if (offsetX > 0 && newLeft + this._width() >= this._scrollContainer.scrollWidth - 5) {
-    //   this._scrollContainer.scrollLeft = this._scrollContainer.scrollWidth;
-    // } else {
-    //   this._scrollContainer.scrollLeft = newLeft;
-    // }
+    if (offsetX > 0 && newLeft + this._width() >= this._scrollContainer.scrollWidth - 5) {
+      this._scrollContainer.scrollLeft = this._scrollContainer.scrollWidth;
+    } else {
+      this._scrollContainer.scrollLeft = newLeft;
+    }
     // this._scrollContainer.scrollTop = Math.round(scrollStartPos.y + start.y - pos.y);
   }
 

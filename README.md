@@ -11,7 +11,7 @@
 
 - disable vertical scroll
   - line 188 and line 323 @ timeline.ts
-  - line 1132 _scrollByPan @ timeline.ts
+  - line 1137 _scrollByPan @ timeline.ts
   - line 1172,1193 _scrollBySelectionOutOfBounds @ timeline.ts
   
 - disable cursor at time = 0
