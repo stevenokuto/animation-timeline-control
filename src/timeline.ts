@@ -1177,9 +1177,9 @@ export class Timeline extends TimelineEventsEmitter {
     //     speedY = (TimelineUtils.getDistance(x, this._height() - bounds) * scrollSpeedMultiplier) / 4;
     //     newHeight = this._scrollContainer.scrollTop + this._height();
     //   }
-    // } else {
-    //   this._stopAutoPan();
-    // }
+    } else {
+      this._stopAutoPan();
+    }
 
     if (newWidth || newHeight) {
       this._rescaleInternal(newWidth, newHeight, 'scrollBySelection');
